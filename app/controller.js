@@ -66,6 +66,7 @@ module.exports = {
       req.body.deposit_method,
       new Date().toISOString().slice(0,10).replace(/-/g,""),
       req.body.username,
+      req.body.control_number,
       parseInt(1e7 * Math.random(), 10).toString(),
       '/'
     ) + filename);
