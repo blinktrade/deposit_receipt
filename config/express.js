@@ -4,6 +4,9 @@ var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var uuid = require('node-uuid');
+var session = require('express-session');
+var flash = require('connect-flash');
 var routes = require('../app/routes');
 
 require('./storage');
@@ -17,28 +20,15 @@ module.exports = function(app) {
   app.use(bodyParser.urlencoded({
     extended: true
   }));
+  app.use(session({
+    saveUninitialized: false,
+    secret: uuid.v4(),
+    resave: false
+  }));
+  app.use(flash());
   app.use(cors({ origin: false }));
   app.disable('x-powered-by');
 
-  // Multer is required to process file uploads and make them available via
-  // req.files.
-  var multer = require('multer')({
-    inMemory: true,
-    fileSize: 5 * 1024 * 1024, // no larger than 5mb, you can change as needed.
-    fileFilter: function(req, file, callback) {
-      var filename = file.originalname.toLowerCase();
-      return path.extname(filename) !== '.jpg'
-          && path.extname(filename) !== '.jpeg'
-          && path.extname(filename) !== '.png'
-          && path.extname(filename) !== '.pdf'
-          && path.extname(filename) !== '.doc'
-            ? callback('File not allowed', false)
-            : callback(null, true);
-    }
-  });
-
-  app.multer = multer;
   app.use('/', routes(app));
-
   app.listen(process.env.PORT || '8080');
 };

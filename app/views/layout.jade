@@ -11,16 +11,19 @@ html(lang="en")
   if lang == "es"
     - var receipt = "Recibo de depósito"
     - var submit  = "Submit"
+    - var control = "Número de control"
   else if lang == "pt_BR"
     - var receipt = "Comprovante"
     - var submit  = "Enviar"
+    - var control = "Numero de controle"
   else
     - var receipt = "Deposit receipt"
     - var submit  = "Submit"
+    - var control = "Control number"
 
   body
     #container
-      form(method="POST", action="/upload", enctype="multipart/form-data")
+      form(method="POST", action="/", enctype="multipart/form-data")
         input(type="hidden" value="#{user_id}" name="user_id")
         input(type="hidden" value="#{username}" name="username")
         input(type="hidden" value="#{broker_id}" name="broker_id")
@@ -36,7 +39,7 @@ html(lang="en")
 
         .field
           label
-            span= receipt
+            span= control
             span.red
               | *
           input(type="text" readonly id="control_number" value="#{control_number}" name="control_number" required)
@@ -49,6 +52,10 @@ html(lang="en")
             span.red
               | *
           input(type="file" id="file" name="file" required)
+        .field.flash
+          if messageFile
+            label
+            span= messageFile
         .field
           label
           input.btn(type="submit" id="submit" value="#{submit}")

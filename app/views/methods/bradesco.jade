@@ -8,7 +8,7 @@ block content
       | Agencia
       span.red
         | *
-    input(type="text" id="agencia" name="agencia" required)
+    input(type="text" id="agencia" name="agencia" value="#{agencia || ''}" required)
     br
     label
     small.hint O número da SUA agência, de onde o depósito foi realizado.
@@ -20,7 +20,7 @@ block content
       | Documento
       span.red
         | *
-    input(type="text" id="document" name="documento" required)
+    input(type="text" id="document" name="documento" value="#{documento || ''}" required)
     br
     label
     small.hint Número do documento que aparece no comprovante de transferência

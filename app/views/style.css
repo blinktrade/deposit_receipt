@@ -16,6 +16,11 @@ body {
     color: #E00000;
 }
 
+.flash {
+    color: red;
+    font-size: 13px;
+}
+
 .field {
     padding-bottom: 12px;
 }
