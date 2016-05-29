@@ -42,6 +42,7 @@ Make sure to set the `GCLOUD_PROJECT` and `GCLOUD_STORAGE_BUCKET` on `app.yaml` 
 # TODO
 
 * Detect exif images fraud
+* Video self capture
 
 # License
 BlinkTrade INC 2016 - [GNU GPL v3](./LICENSE)
