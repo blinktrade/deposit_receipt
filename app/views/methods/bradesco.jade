@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  input(type="hidden" value="agencia,documento" name="id_fields")
+
+  .field.divider
+    label(for="agencia")
+      | Agencia
+      span.red
+        | *
+    input(type="text" id="agencia" name="agencia" required)
+  .field.divider
+    label(for="document")
+      | Documento
+      span.red
+        | *
+    input(type="text" id="document" name="documento" required)

@@ -1,0 +1,103 @@
+doctype html
+html(lang="en")
+  head
+    title Deposit Receipts
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    style.
+
+      body {
+        font-family: 'Helvetica', 'Arial';
+      }
+
+      .title {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+        font-weight: 300;
+        font-size: 34px;
+      }
+
+
+      .red {
+        position: relative;
+        top: 4px;
+        left: 4px;
+        color: #E00000;
+      }
+
+      .divider {
+        padding-bottom: 12px;
+      }
+
+
+      .field label {
+        width: 120px;
+        display: inline-block;
+        text-align: right;
+        padding-right: 12px;
+      }
+
+      input[type=text] {
+        height: 20px;
+        padding: 6px;
+        font-size: 14px;
+        border-radius: 3px;
+        border: 1px solid #ddd;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      input[type=file] {
+        height: 20px;
+        padding: 6px;
+        font-size: 12px;
+        border-radius: 3px;
+        border: 1px solid #ddd;
+      }
+
+      #submit {
+        padding: 8px;
+        min-width: 80px;
+        border-radius: 4px;
+        cursor: pointer;
+        color: white;
+        background-color: #006dcc;
+        transition: all 0.1s linear;
+        border: 1px solid #cccccc;
+        border-color: #0044cc #0044cc #002a80;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+
+      #submit:hover {
+        background-color: #0044cc;
+      }
+
+  body
+    #container
+      form(method="POST", action="/upload", enctype="multipart/form-data")
+        input(type="hidden" value="#{user_id}" name="user_id")
+        input(type="hidden" value="#{username}" name="username")
+        input(type="hidden" value="#{broker_id}" name="broker_id")
+        input(type="hidden" value="#{broker_username}" name="broker_username")
+        input(type="hidden" value="#{deposit_method}" name="deposit_method")
+        input(type="hidden" value="#{deposit_id}" name="deposit_id")
+        if value
+          input(type="hidden" value="#{value}" name="value")
+        if formatted_value
+          input(type="hidden" value="#{formatted_value}" name="formatted_value")
+        if testnet
+          input(type="hidden" value="#{testnet}" name="testnet")
+
+        block content
+
+        .field.divider
+          label(for="file")
+            | Deposit receipt
+            span.red
+              | *
+          input(type="file" id="file" name="file" required)
+        .field
+          label
+          input(type="submit" id="submit")

@@ -1,0 +1,24 @@
+{
+  "name": "blinktrade-deposit-form",
+  "description": "blinktrade deposit form",
+  "scripts": {
+    "start": "node app.js",
+    "watch": "nodemon app.js",
+    "deploy": "gcloud preview app deploy"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "gcloud": "^0.30.3",
+    "jade": "^1.11.0",
+    "morgan": "^1.7.0",
+    "multer": "^1.1.0",
+    "node-uuid": "^1.4.7",
+    "request": "^2.72.0"
+  },
+  "engines": {
+    "node": "4.3.2",
+    "npm": "3.7.x"
+  }
+}

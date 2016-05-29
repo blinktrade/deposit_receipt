@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  input(type="hidden" value="Reference" name="id_fields")
+
+  .field.divider
+    label(for="control_number")
+      | Número de control
+      span.red
+        | *
+    input(type="text" id="reference" name="control_number" required)
+  .field.divider
+    label(for="reference")
+      | Nº DE RECIBO
+      span.red
+        | *
+    input(type="text" id="reference" name="Reference" required)
