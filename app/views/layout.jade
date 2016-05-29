@@ -8,6 +8,16 @@ html(lang="en")
     include style.css
     | </style>
 
+  if lang == "es"
+    - var receipt = "Recibo de depósito"
+    - var submit  = "Submit"
+  else if lang == "pt_BR"
+    - var receipt = "Comprovante"
+    - var submit  = "Enviar"
+  else
+    - var receipt = "Deposit receipt"
+    - var submit  = "Submit"
+
   body
     #container
       form(method="POST", action="/upload", enctype="multipart/form-data")
@@ -28,10 +38,10 @@ html(lang="en")
 
         .field.divider
           label(for="file")
-            | Deposit receipt
+            span= receipt
             span.red
               | *
           input(type="file" id="file" name="file" required)
         .field
           label
-          input.btn(type="submit" id="submit")
+          input.btn(type="submit" id="submit" value="#{submit}")

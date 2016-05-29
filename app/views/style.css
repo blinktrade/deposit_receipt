@@ -27,6 +27,11 @@ body {
     padding-right: 12px;
 }
 
+.hint {
+    font-size: 11px;
+    color: #999;
+}
+
 input[type=text] {
     height: 20px;
     padding: 6px;
