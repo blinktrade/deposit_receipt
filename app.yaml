@@ -17,8 +17,8 @@ vm: true
 
 # [START env]
 env_variables:
-  GCLOUD_PROJECT: default-demo-app-2ace3
-  GCLOUD_STORAGE_BUCKET: blinktrade_bucket
+  GCLOUD_PROJECT: blinktrade-deposits.appspot.com
+  GCLOUD_STORAGE_BUCKET: blinktrade-deposits.appspot.com
   NODE_ENV: production
 # [END env]
 # [END app_yaml]
