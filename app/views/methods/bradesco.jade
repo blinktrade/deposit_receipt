@@ -3,30 +3,22 @@ extends ../layout
 block content
   input(type="hidden" value="agencia,documento" name="id_fields")
 
-  .field
+  .field-group
     label(for="agencia")
       | Agencia
       span.red
         | *
-    input(type="text" id="agencia" name="agencia" value="#{agencia || ''}" required)
-    br
-    label
-    small.hint O número da SUA agência, de onde o depósito foi realizado.
-    br
-    label
-    small.hint Você pode visualizar este número no comprovante olhando o número agência no campo Conta de débito
-  .field
+    .field
+      input(type="text" id="agencia" name="agencia" value="#{agencia || ''}" required)
+      small.hint O número da SUA agência, de onde o depósito foi realizado.
+      small.hint Você pode visualizar este número no comprovante olhando o número agência no campo Conta de débito
+  .field-group
     label(for="document")
       | Documento
       span.red
         | *
-    input(type="text" id="document" name="documento" value="#{documento || ''}" required)
-    br
-    label
-    small.hint Número do documento que aparece no comprovante de transferência
-    br
-    label
-    small.hint Campo chamado "documento", que aparece logo ao lado do Nº de controle nos comprovantes de transferência online.
-    br
-    label
-    small.hint Para transferências via caixa eletrônico, procure pelo campo Documento. É um número de 7 dígitos que normalmente começa com 000.
+    .field
+      input(type="text" id="document" name="documento" value="#{documento || ''}" required)
+      small.hint Número do documento que aparece no comprovante de transferência
+      small.hint Campo chamado "documento", que aparece logo ao lado do Nº de controle nos comprovantes de transferência online.
+      small.hint Para transferências via caixa eletrônico, procure pelo campo Documento. É um número de 7 dígitos que normalmente começa com 000.

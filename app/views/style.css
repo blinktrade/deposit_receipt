@@ -21,38 +21,64 @@ body {
     font-size: 13px;
 }
 
-.field {
+.field-group {
     padding-bottom: 12px;
+    display: table;
 }
 
-.field label {
+.field-group label {
     width: 120px;
-    display: inline-block;
     text-align: right;
-    padding-right: 12px;
+    padding-right: 10px;
+    font-size: 13.5px;
+    display: table-cell;
+    width: 130px;
+}
+
+@media screen and (max-width: 460px) {
+    form {
+        padding: 14px;
+    }
+    .field-group {
+        width: 100%;
+        padding-bottom: 8px;
+    }
+    .field-group label {
+        display: block;
+        text-align: left;
+        padding-right: 0;
+        margin-bottom: 4px;
+    }
+    input {
+        margin-bottom: 6px;
+        width: 100%;
+    }
 }
 
 .hint {
+    display: block;
     font-size: 11px;
     color: #999;
 }
 
 input[type=text] {
-    height: 20px;
+    height: 34px;
     padding: 6px;
     font-size: 14px;
     border-radius: 3px;
     border: 1px solid #ddd;
     outline: none;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 input[type=file] {
-    height: 20px;
+    height: 34px;
     padding: 6px;
     font-size: 12px;
     border-radius: 3px;
     border: 1px solid #ddd;
+    box-sizing: border-box;
 }
 
 .btn {
