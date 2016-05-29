@@ -34,9 +34,16 @@ html(lang="en")
         if testnet
           input(type="hidden" value="#{testnet}" name="testnet")
 
+        .field
+          label
+            span= receipt
+            span.red
+              | *
+          input(type="text" readonly id="control_number" value="#{control_number}" name="control_number" required)
+
         block content
 
-        .field.divider
+        .field
           label(for="file")
             span= receipt
             span.red
