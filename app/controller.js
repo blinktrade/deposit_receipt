@@ -61,7 +61,14 @@ module.exports = {
     }
 
     var filename = uuid.v4().split('-')[4] + path.extname(req.file.originalname);
-    var blob = bucket.file(filename);
+    var blob = bucket.file(path.join(
+      req.body.broker_username,
+      req.body.deposit_method,
+      new Date().toISOString().slice(0,10).replace(/-/g,""),
+      req.body.username,
+      parseInt(1e7 * Math.random(), 10).toString(),
+      '/'
+    ) + filename);
     var blobStream = blob.createWriteStream();
 
     blobStream.on('error', function(err) {
