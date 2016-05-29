@@ -4,75 +4,9 @@ html(lang="en")
     title Deposit Receipts
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    style.
-
-      body {
-        font-family: 'Helvetica', 'Arial';
-      }
-
-      .title {
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        text-align: center;
-        font-weight: 300;
-        font-size: 34px;
-      }
-
-
-      .red {
-        position: relative;
-        top: 4px;
-        left: 4px;
-        color: #E00000;
-      }
-
-      .divider {
-        padding-bottom: 12px;
-      }
-
-
-      .field label {
-        width: 120px;
-        display: inline-block;
-        text-align: right;
-        padding-right: 12px;
-      }
-
-      input[type=text] {
-        height: 20px;
-        padding: 6px;
-        font-size: 14px;
-        border-radius: 3px;
-        border: 1px solid #ddd;
-        outline: none;
-        transition: all 0.3s ease;
-      }
-
-      input[type=file] {
-        height: 20px;
-        padding: 6px;
-        font-size: 12px;
-        border-radius: 3px;
-        border: 1px solid #ddd;
-      }
-
-      #submit {
-        padding: 8px;
-        min-width: 80px;
-        border-radius: 4px;
-        cursor: pointer;
-        color: white;
-        background-color: #006dcc;
-        transition: all 0.1s linear;
-        border: 1px solid #cccccc;
-        border-color: #0044cc #0044cc #002a80;
-        text-transform: uppercase;
-        font-size: 12px;
-      }
-
-      #submit:hover {
-        background-color: #0044cc;
-      }
+    | <style type='text/css'>
+    include style.css
+    | </style>
 
   body
     #container
@@ -100,4 +34,4 @@ html(lang="en")
           input(type="file" id="file" name="file" required)
         .field
           label
-          input(type="submit" id="submit")
+          input.btn(type="submit" id="submit")

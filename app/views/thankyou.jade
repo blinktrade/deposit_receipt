@@ -4,16 +4,10 @@ html(lang="en")
     title Deposit Receipts
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    style.
-      body {
-        font-family: 'Helvetica', 'Arial';
-      }
-      .title {
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        font-weight: 300;
-        font-size: 34px;
-      }
+    | <style type='text/css'>
+    include style.css
+    | </style>
 
   body
     h1.title Thank You
+    button.btn(onclick="self.close()") Back
