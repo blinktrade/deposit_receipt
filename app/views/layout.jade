@@ -10,12 +10,16 @@ html(lang="en")
 
   if lang == "es"
     - var receipt = "Recibo de depósito"
-    - var submit  = "Submit"
+    - var submit  = "Enviar"
     - var control = "Número de control"
   else if lang == "pt_BR"
     - var receipt = "Comprovante"
     - var submit  = "Enviar"
     - var control = "Numero de controle"
+  else if lang == "vi"
+    - var receipt = "Ảnh chụp biên lai"
+    - var submit  = "Gửi"
+    - var control = "Số kiểm soát"
   else
     - var receipt = "Deposit receipt"
     - var submit  = "Submit"
