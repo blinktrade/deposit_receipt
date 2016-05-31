@@ -60,14 +60,13 @@ module.exports = {
       return res.status(400).redirect('/?' + querystring.stringify(req.body))
     }
 
-    var filename = uuid.v4().split('-')[4] + path.extname(req.file.originalname);
+    var filename = new Date().toISOString().slice(0,10).replace(/-/g,"") 
+                 + '_' + req.body.deposit_method 
+                 + '_' + req.body.username 
+                 + '_' +  uuid.v4().split('-')[4] + path.extname(req.file.originalname);
     var blob = bucket.file(path.join(
       req.body.broker_username,
-      req.body.deposit_method,
-      new Date().toISOString().slice(0,10).replace(/-/g,""),
-      req.body.username,
       req.body.control_number,
-      parseInt(1e7 * Math.random(), 10).toString(),
       '/'
     ) + filename);
     var blobStream = blob.createWriteStream();
