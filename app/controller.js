@@ -87,9 +87,17 @@ module.exports = {
 
     req.body.event_id = path.basename(req.blob.name, path.extname(req.blob.name));
     req.body.depositReceipt = format(config.store_url, bucket.name, req.blob.name);
-
+    
+    var backend_rest_url = config.blinktrade.prod;
+    if (req.body.testnet) {
+      backend_rest_url = config.blinktrade.testnet;
+    }
+    if (req.body.bitcambio) {
+      backend_rest_url = config.blinktrade.bitcambio;      
+    }
+    
     request.post({
-      url: req.body.testnet ? config.blinktrade.testnet : config.blinktrade.prod,
+      url: backend_rest_url,
       form: {
         submissionID: parseInt(1e7 * Math.random(), 10),
         rawRequest: JSON.stringify(req.body)
