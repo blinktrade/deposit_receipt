@@ -7,12 +7,12 @@
     "deploy": "gcloud preview app deploy"
   },
   "dependencies": {
+    "@google-cloud/storage": "^1.5.2",
     "body-parser": "^1.14.2",
     "connect-flash": "^0.1.1",
     "cors": "^2.7.1",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
-    "gcloud": "^0.30.3",
     "jade": "^1.11.0",
     "morgan": "^1.7.0",
     "multer": "^1.1.0",
@@ -20,7 +20,7 @@
     "request": "^2.72.0"
   },
   "engines": {
-    "node": "4.3.2",
-    "npm": "3.7.x"
+    "node": "9.4.x",
+    "npm": "5.6.x"
   }
 }
